@@ -1,0 +1,35 @@
+﻿<Window x:Class="exzamentwo.Product"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:exzamentwo"
+        mc:Ignorable="d"
+        Title="Product" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" >
+            <TextBox Margin="20 10 0 0" materialDesign:HintAssist.Hint ="Введите название"  HorizontalAlignment="Left" Width="150"></TextBox>
+        </StackPanel>
+        <DataGrid x:Name="DataGridProduct" AutoGenerateColumns="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Info}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Поставщик" Binding="{Binding Providers.Title}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Единица измерения" Binding="{Binding Unit.UnitMeas}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="2">
+            <Button Content="Добавить" Height="35" Width="120" Margin="20" Click="ButtonAdd_Click"></Button>
+            <Button Content="Удалить" Height="35" Width="120" Margin="20" Click="ButtonDel_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
